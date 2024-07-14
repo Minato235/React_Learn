@@ -7,5 +7,13 @@
     "test": "jest"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Minato235/React_Learn.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Minato235/React_Learn/issues"
+  },
+  "homepage": "https://github.com/Minato235/React_Learn#readme"
 }
