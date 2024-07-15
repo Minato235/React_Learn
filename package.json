@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Minato235/React_Learn/issues"
   },
-  "homepage": "https://github.com/Minato235/React_Learn#readme"
+  "homepage": "https://github.com/Minato235/React_Learn#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
 }
