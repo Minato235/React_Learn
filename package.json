@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Learning React from scratch",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start":"parcel index.html",
+    "build":"build parcel index.html"
   },
   "author": "",
   "license": "ISC",

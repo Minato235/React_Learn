@@ -1,9 +1,20 @@
 import React from "react";
-import ReactDOM from "react-dom/client"
-const head = React.createElement("h1", { id: "heading" }, "HHEl00000");
-const root = ReactDOM.createRoot(document.getElementById("root"))
+import ReactDOM from "react-dom/client";
 
-const parent = React.createElement("div", { id: "praent" },
-       [React.createElement("h4", { id: "child" }, "child")],
-       [React.createElement("h4", { id: "child" }, "child2")]);
-root.render(parent)
+//react element
+const JsxHeading = () => <p id="heading">jsx Is ! html</p>;
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+//func componenet
+const FunctionComponeet = () => (
+    
+  <h3>
+    <JsxHeading />
+    {JsxHeading()}
+    Functional Component
+    s are Basic Js Functions
+  </h3>
+);
+root.render(<FunctionComponeet />);
+
+console.log(FunctionComponeet);
