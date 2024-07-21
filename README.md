@@ -1,5 +1,5 @@
 contro+C
-[Episode1](/Notes/EP-1.PDF)
+[Episode1](Notes/EP-1.pdf)
 BASICS(If we know Basics we cant be defeted)
 Q ) What is React? Why React is known as ‘React’?
 Q ) What is Library?  
