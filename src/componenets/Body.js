@@ -6,8 +6,6 @@ const Body = () => {
   return (
     <div className="body">
       <div className="filter">
-
-
         <button
           className="btn"
           onClick={() => {
@@ -19,7 +17,6 @@ const Body = () => {
         >
           Filter Buttion
         </button>
-        
       </div>
       <div className="restroContainer">
         {listRestro.map((res) => {
