@@ -1,5 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
 const resData = [
     {
       info: {
@@ -1622,76 +1620,4 @@ const resData = [
       },
     },
   ];
-
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img
-          className="logo"
-          src="https://imgs.search.brave.com/efruMfdVp0epiVA2DGxO3pOnOnbX7srDddg4VNnN8U4/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/bG9nb2pveS5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTgv/MDUvMDExMDU5Mzcv/MTZfYmlnNi03Njh4/NTkxLnBuZw"
-          alt="random"
-        ></img>
-      </div>
-
-      <div className="nav-items">
-        <ul className="nav-list">
-          <li className="nav-item">Home</li>
-          <li className="nav-item">About</li>
-          <li className="nav-item">Contact</li>
-          <li className="nav-item">Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-// const url=("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.3248023&lng=78.63317339999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-
-const IMG_CDN_URL =
-  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
-  const RestroCards = ({
-    cloudinaryImageId,
-    name,
-    cuisines,
-    area,
-    lastMileTravelString,
-    costForTwoString,
-    avgRating,
-  }) => {
-    return (
-      <div className="res-card">
-        <img className="res-logo" src={IMG_CDN_URL + cloudinaryImageId} alt="restaurant" />
-        <h4>{name}</h4>
-        <p>{cuisines.join(", ")}</p>
-        <p>{area}</p>
-        <p>{lastMileTravelString}</p>
-        <p>{costForTwoString}</p>
-        <p>{avgRating}</p>
-      </div>
-    );
-  };
-// console.log(RestroCards)
-
-const Body = () => {
-  return (
-      <div className="restroContainer">
-        {resData.map((res) => {
-          // console.log(res.info)
-          //data coming from down here   
-          return <RestroCards key={res.info.id} {...res.info} />;
-        })}
-      </div>    
-  );
-};
-
-const Applayput = () => {
-  return (
-    <div className="App">
-      <Header />
-      <Body />
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Applayput />);
+export default resData;
