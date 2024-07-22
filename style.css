@@ -16,7 +16,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #FC8019;
+  background-color:lightcyan;
   color: white;
 }
 
@@ -26,10 +26,13 @@ body {
 
 .logo {
   width: 100px;
+  background-color:aqua;
 }
 
 .nav-items {
   flex: 2;
+  color: black;
+  font-style: normal;
 }
 
 .nav-list {
@@ -89,4 +92,10 @@ body {
 .app {
   max-width: 1200px;
   margin: auto;
+}
+.btn{
+  margin: 10 10;
+  background-color:lightcyan;
+  font: bold;
+
 }
