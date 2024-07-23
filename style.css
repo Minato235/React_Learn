@@ -99,3 +99,7 @@ body {
   font: bold;
 
 }
+.search{
+  display: flex;
+  margin: auto;
+}

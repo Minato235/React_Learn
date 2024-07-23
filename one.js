@@ -1,17 +1,17 @@
-var topKFrequent = function(nums, k) {
-    let hash={};let res=[]
-    // nums.sort((a,b)=>a-b)
-
-  for(let x of nums){
-    hash[x]=(hash[x]||0)+1;
+var frequencySort = function(nums) {
+let map=new Map();
+for(let i=0;i<nums.length;i++){
+  if(map.get(nums[i])){
+    map.set(nums[i],map.get(nums[i])+1)||0;
+  }else{
+    map.set(nums[i],1)
   }
-  let values=Object.entries(hash)
-  values.sort((a, b) => b[1] - a[1]);
-for(let i=0;i<k;i++){
-  res.push(parseInt(values[i][0]))
-}
+  return nums.sort((a,b)=>{
+    const diff=map.get(a)-map.get(b)
+    console.log(diff)
+  })
 
-return (res)
+}
 };
-let nums = [1,1,1,1,1,2,2,3,3,3,3], k = 2
-console.log(topKFrequent(nums,k))
+let nums = [-1,1,-6,4,5,-6,1,4,1]
+console.log(frequencySort(nums))
