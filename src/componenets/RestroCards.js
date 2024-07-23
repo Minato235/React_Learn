@@ -3,9 +3,9 @@ import {IMG_CDN_URL} from "../util/const"
     cloudinaryImageId,
     name,
     cuisines,
-    area,
+    areaName,
     lastMileTravelString,
-    costForTwoString,
+    costForTwo,
     avgRating,
   }) => {
     return (
@@ -13,9 +13,9 @@ import {IMG_CDN_URL} from "../util/const"
         <img className="res-logo" src={IMG_CDN_URL + cloudinaryImageId} alt="restaurant" />
         <h4>{name}</h4>
         <p>{cuisines.join(", ")}</p>
-        <p>{area}</p>
-        <p>{lastMileTravelString}</p>
-        <p>{costForTwoString}</p>
+        <p>{areaName}</p>
+        {/* <p>{lastMileTravelString}</p> */}
+        <p>{costForTwo}</p>
         <p>{avgRating}</p>
       </div>
     );

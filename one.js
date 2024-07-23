@@ -1,15 +1,17 @@
-var twoSum = function(nums, target) {
+var topKFrequent = function(nums, k) {
+    let hash={};let res=[]
+    // nums.sort((a,b)=>a-b)
 
-    let map=new Map();
-    for(let i=0;i<nums.length;i++){
-        let x=target-nums[i]
-        if(map.has(x)){
-         return  [map.get(x),i]
-        }else{
-            map.set(nums[i],i)
-        }
-    }
-    return [-1,-1]
+  for(let x of nums){
+    hash[x]=(hash[x]||0)+1;
+  }
+  let values=Object.entries(hash)
+  values.sort((a, b) => b[1] - a[1]);
+for(let i=0;i<k;i++){
+  res.push(parseInt(values[i][0]))
+}
+
+return (res)
 };
-let nums = [2,7,11,15], target = 9;
-console.log(twoSum(nums,target))
+let nums = [1,1,1,1,1,2,2,3,3,3,3], k = 2
+console.log(topKFrequent(nums,k))
