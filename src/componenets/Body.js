@@ -5,6 +5,8 @@ import Shimmer from "./Shimmer";
 const Body = () => {
   const [listRestro, setListofRestro] = useState(resData);
   const [text, setText] = useState(resData);
+  const [filtertext, setFilterText] = useState(resData);
+
 
   // useEffect(()=>{
   //   fetchData();
@@ -29,18 +31,21 @@ const Body = () => {
           <input
             type="search"
             className="search-box"
-            value={text}
+            // value={text}
             onChange={(e) => {
               setText(e.target.value);
             }}
           />
           <button
             onClick={() => {
-              console.log(text);
+              // console.log(text);
+
               const restroDataSearch = listRestro.filter((res) =>
                 res.info.name.includes(text)
               );
               setListofRestro(restroDataSearch);
+              setFilterText(restroDataSearch)
+
             }}
           >
             search
@@ -59,7 +64,7 @@ const Body = () => {
         </button>
       </div>
       <div className="restroContainer">
-        {listRestro.map((res) => {
+        {filtertext.map((res) => {
           // console.log(res.info);
           return <RestroCards key={res.info.id} {...res.info} />;
         })}
