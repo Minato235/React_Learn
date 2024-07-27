@@ -2,26 +2,26 @@ import { useEffect, useState } from "react";
 import resData from "../util/data";
 import RestroCards from "./RestroCards";
 import Shimmer from "./Shimmer";
+
 const Body = () => {
   const [listRestro, setListofRestro] = useState(resData);
-  const [text, setText] = useState(resData);
-  const [filtertext, setFilterText] = useState(resData);
+  const [text, setText] = useState("");
+  const [filterText, setFilterText] = useState(resData);
 
-
-  // useEffect(()=>{
+  // useEffect(() => {
   //   fetchData();
-  // },[])
+  // }, []);
 
-  // //Live api use this code
-  // const fetchData=async()=>{
-  //   const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.3248023&lng=78.63317339999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-  //   console.log(data.json);
-  //   //add cors extensiton and
-  //   setListofRestro(after console add data )
-  // }
+  // // Live api use this code
+  // const fetchData = async () => {
+  //   const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.3248023&lng=78.63317339999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+  //   const data = await response.json();
+  //   console.log(data);
+  //   // setListofRestro(data.data.cards); // Adjust the path based on the actual response structure
+  // };
 
   if (listRestro.length === 0) {
-    <Shimmer></Shimmer>;
+    return <Shimmer />;
   }
 
   return (
@@ -31,24 +31,18 @@ const Body = () => {
           <input
             type="search"
             className="search-box"
-            // value={text}
-            onChange={(e) => {
-              setText(e.target.value);
-            }}
+            value={text}
+            onChange={(e) => setText(e.target.value)}
           />
           <button
             onClick={() => {
-              // console.log(text);
-
               const restroDataSearch = listRestro.filter((res) =>
-                res.info.name.includes(text)
+                res.info.name.toLowerCase().includes(text.toLowerCase())
               );
-              setListofRestro(restroDataSearch);
-              setFilterText(restroDataSearch)
-
+              setFilterText(restroDataSearch);
             }}
           >
-            search
+            Search
           </button>
         </div>
         <button
@@ -57,19 +51,19 @@ const Body = () => {
             const filterdata = listRestro.filter(
               (res) => res.info.avgRating > 4.6
             );
-            setListofRestro(filterdata);
+            setFilterText(filterdata);
           }}
         >
-          Filter Buttion
+          Filter
         </button>
       </div>
       <div className="restroContainer">
-        {filtertext.map((res) => {
-          // console.log(res.info);
+        {filterText.map((res) => {
           return <RestroCards key={res.info.id} {...res.info} />;
         })}
       </div>
     </div>
   );
 };
+
 export default Body;
