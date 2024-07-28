@@ -36,29 +36,35 @@ const Body = () => {
           />
           <button
             onClick={() => {
-              const restroDataSearch = listRestro.filter((res) =>
+              const restroDataSearch = filterText.filter((res) =>
                 res.info.name.toLowerCase().includes(text.toLowerCase())
               );
-              setFilterText(restroDataSearch);
+              setListofRestro(restroDataSearch);
             }}
           >
             Search
           </button>
         </div>
+
+        {/* {filter buttion down } */}
+
         <button
           className="btn"
           onClick={() => {
-            const filterdata = listRestro.filter(
-              (res) => res.info.avgRating > 4.6
+            const filterdata = filterText.filter(
+              (res) => res.info.avgRating > 4.2
             );
-            setFilterText(filterdata);
+            setListofRestro(filterdata);
           }}
         >
           Filter
         </button>
       </div>
+
+      {/* data coming from down 1st */}
+
       <div className="restroContainer">
-        {filterText.map((res) => {
+        {listRestro.map((res) => {
           return <RestroCards key={res.info.id} {...res.info} />;
         })}
       </div>
