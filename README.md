@@ -1,4 +1,3 @@
-contro+C
 [Episode1](Notes/EP-1.pdf)
 
 
@@ -7,10 +6,12 @@ Parcel is Beast?
 
 [Episode3](Notes/EP-3.PDF)
 
-Parcel is Beast?
-
 [Episode4](Notes/EP-4.PDF)
-Parcel is Beast?
+
+[Episode5](Notes/EP-5.PDF)
+
+[Episode6](Notes/EP-6.PDF)
+
 
 
 [link]
