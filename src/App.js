@@ -1,9 +1,9 @@
-import React, { lazy,Suspense } from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./componenets/Header";
 import RestroCards from "./componenets/RestroCards";
 import Body from "./componenets/Body";
-import { createBrowserRouter,RouterProvider,Outlet} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 // import About from "./componenets/About";
 import Restromenu from "./componenets/RestroMenu";
 
@@ -11,7 +11,7 @@ import Restromenu from "./componenets/RestroMenu";
 
 // console.log(RestroCards)
 
-const About=lazy(()=>{import("./componenets/About")})
+const About = lazy(()=>import("./componenets/About"))
 
 const Applayput = () => {
   return (
@@ -21,29 +21,32 @@ const Applayput = () => {
     </div>
   );
 };
-const appRouter=createBrowserRouter([
+const appRouter = createBrowserRouter([
   {
-    path:"/",
-    element:<Applayput/>,
+    path: "/",
+    element: <Applayput />,
     // errorElement:<Applayput/>,
-    children:[
+    children: [
       {
-        path:"/about",
-        element:<About/>
+        path: "/about",
+        element: (
+          <Suspense fallback={<h1>Suspense Loading</h1>}>
+            <About />
+          </Suspense>
+        ),
       },
       {
-        path:"/",
-        element:<Body/>,
+        path: "/",
+        element: <Body />,
       },
       {
-        path:"/menu/:resId",
-        element:<Restromenu/>,
+        path: "/menu/:resId",
+        element: <Restromenu />,
       },
     ],
     // errorElement:<Applayput/>
-  }
-
-])
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={appRouter}/>);
+root.render(<RouterProvider router={appRouter} />);
