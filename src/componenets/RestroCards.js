@@ -9,9 +9,9 @@ import {IMG_CDN_URL} from "../util/const"
     avgRating,
   }) => {
     return (
-      <div className="res-card">
-        <img className="res-logo" src={IMG_CDN_URL + cloudinaryImageId} alt="restaurant" />
-        <h4>{name}</h4>
+      <div className="m-7 p-4 w-96 bg-voilet-500 hover:bg-violet-200 rounded-lg w-25 ">
+        <img className="w-fit h-48 object-cover rounded-md" src={IMG_CDN_URL + cloudinaryImageId} alt="restaurant" />
+        <h4 className="font-bold font-lg">{name}</h4>
         <p>{cuisines.join(", ")}</p>
         <p>{areaName}</p>
         {/* <p>{lastMileTravelString}</p> */}

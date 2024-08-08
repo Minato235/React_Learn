@@ -6,6 +6,7 @@ import Body from "./componenets/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 // import About from "./componenets/About";
 import Restromenu from "./componenets/RestroMenu";
+import { Home } from "./componenets/About";
 
 // const url=("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.3248023&lng=78.63317339999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
 
@@ -36,8 +37,12 @@ const appRouter = createBrowserRouter([
         ),
       },
       {
-        path: "/",
-        element: <Body />,
+        path: "/" || "/Home",
+        element: <Body/>,
+      },
+      {
+        path: "/Home",
+        element: <Body/>,
       },
       {
         path: "/menu/:resId",

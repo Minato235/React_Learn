@@ -20,56 +20,52 @@ const Body = () => {
   //   // setListofRestro(data.data.cards); // Adjust the path based on the actual response structure
   // };
 
-  if (listRestro.length === 0) {
-    return <Shimmer />;
-  }
 
-  return (
-    <div className="body">
-      <div className="filter">
-        <div className="search">
-          <input
-            type="search"
-            className="search-box"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-          <button
-            onClick={() => {
-              const restroDataSearch = filterText.filter((res) =>
-                res.info.name.toLowerCase().includes(text.toLowerCase())
-              );
-              setListofRestro(restroDataSearch);
-            }}
-          >
-            Search
-          </button>
+    return (
+      <div className="body">
+        <div className="p-4">
+          <div className="flex items-center ">
+            <input
+              type="search"
+              className="border border-solid border-black px-2 py-1"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            />
+            <button
+              className="px-4 m-2 bg-green-500 hover:bg-violet-300 rounded-lg"
+              onClick={() => {
+                const restroDataSearch = filterText.filter((res) =>
+                  res.info.name.toLowerCase().includes(text.toLowerCase())
+                );
+                setListofRestro(restroDataSearch);
+              }}
+            >
+              Search
+            </button>
+            <button
+              className="px-4 ml-10  bg-green-500 hover:bg-violet-300 rounded-lg justify-center space-x-2"
+              onClick={() => {
+                const filterdata = filterText.filter(
+                  (res) => res.info.avgRating > 4.2
+                );
+                setListofRestro(filterdata);
+              }}
+            >
+              Filter
+            </button>
+          </div>
         </div>
-
-        {/* {filter buttion down } */}
-
-        <button
-          className="btn"
-          onClick={() => {
-            const filterdata = filterText.filter(
-              (res) => res.info.avgRating > 4.2
-            );
-            setListofRestro(filterdata);
-          }}
-        >
-          Filter
-        </button>
+  
+        {/* data coming from down 1st */}
+  
+        <div className="flex flex-wrap justify-center">
+          {listRestro.map((res) => {
+            return <RestroCards key={res.info.id} {...res.info} />;
+          })}
+        </div>
       </div>
-
-      {/* data coming from down 1st */}
-
-      <div className="restroContainer">
-        {listRestro.map((res) => {
-          return <RestroCards key={res.info.id} {...res.info} />;
-        })}
-      </div>
-    </div>
-  );
-};
-
-export default Body;
+    );
+  };
+  
+  export default Body;
+  

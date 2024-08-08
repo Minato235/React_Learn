@@ -1,3 +1,5 @@
+import Body from "./Body";
+
 const About = () => {
   return (
     <div>
@@ -5,4 +7,9 @@ const About = () => {
     </div>
   );
 };
+export const Home=()=>{
+return (
+  <Body/>
+)
+}
 export default About;
