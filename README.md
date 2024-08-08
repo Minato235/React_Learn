@@ -116,6 +116,5 @@ npm install --save-dev @testing-library/jest-dom
 
 ---
 
-If you need more detailed explanations or help with any specific part, feel free to ask!
 [link]
 https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.3248023&lng=78.63317339999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING

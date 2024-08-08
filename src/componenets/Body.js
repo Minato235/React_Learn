@@ -60,7 +60,7 @@ const Body = () => {
   
         <div className="flex flex-wrap justify-center">
           {listRestro.map((res) => {
-            return <RestroCards key={res.info.id} {...res.info} />;
+            return <RestroCards key={res.info.id} {...res.info} />
           })}
         </div>
       </div>
