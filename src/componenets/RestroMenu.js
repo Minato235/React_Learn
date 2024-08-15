@@ -1,36 +1,27 @@
 import MENU_URL from "../util/MENU_URL";
 import { useParams } from "react-router-dom";
+import useResMenu from "../util/useResMenu";
 
 const Restromenu = () => {
-  const menu = MENU_URL;
+  const { resId } = useParams(); // Destructure to get resId
+  const resInfo = useResMenu(resId);
+  console.log(resInfo)
 
-  console.log('Menu:', menu);
+  // Handle case where resInfo might be undefined
+  if (!resInfo) {
+    return <div>Loading...</div>;
+  }
 
-  // Access the first card to get restaurant info
-  const resInfo = menu[0]?.card?.card?.text;
-  console.log('Restaurant Info:', resInfo);
-
-  const itemCards = menu[2]?.card?.card?.tabs;
-  console.log('Item Cards:', itemCards);
+  const { name, cuisines, costForTwoMessage } = resInfo;
 
   return (
     <div className="menu">
-      <h1>{resInfo[3]}</h1>
-      {/* <img>IMAGE</img> */}
+      <h1>{name}</h1> {/* Fixed typo here */}
       <ul>
         {/* Placeholder items */}
         <li>Item1</li>
         <li>Item2</li>
         <li>Item3</li>
-      </ul>
-      <ul>
-        {itemCards ? (
-          itemCards.map((item, index) => (
-            <li key={index}>{item.title}</li> // Adjust based on actual data
-          ))
-        ) : (
-          <li>No items found</li>
-        )}
       </ul>
     </div>
   );

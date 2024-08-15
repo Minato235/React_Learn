@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import resData from "../util/data";
 import RestroCards from "./RestroCards";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listRestro, setListofRestro] = useState(resData);
@@ -20,52 +21,55 @@ const Body = () => {
   //   // setListofRestro(data.data.cards); // Adjust the path based on the actual response structure
   // };
 
-
-    return (
-      <div className="body">
-        <div className="p-4">
-          <div className="flex items-center ">
-            <input
-              type="search"
-              className="border border-solid border-black px-2 py-1"
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-            />
-            <button
-              className="px-4 m-2 bg-green-500 hover:bg-violet-300 rounded-lg"
-              onClick={() => {
-                const restroDataSearch = filterText.filter((res) =>
-                  res.info.name.toLowerCase().includes(text.toLowerCase())
-                );
-                setListofRestro(restroDataSearch);
-              }}
-            >
-              Search
-            </button>
-            <button
-              className="px-4 ml-10  bg-green-500 hover:bg-violet-300 rounded-lg justify-center space-x-2"
-              onClick={() => {
-                const filterdata = filterText.filter(
-                  (res) => res.info.avgRating > 4.2
-                );
-                setListofRestro(filterdata);
-              }}
-            >
-              Filter
-            </button>
-          </div>
-        </div>
-  
-        {/* data coming from down 1st */}
-  
-        <div className="flex flex-wrap justify-center">
-          {listRestro.map((res) => {
-            return <RestroCards key={res.info.id} {...res.info} />
-          })}
+  return (
+    <div className="body">
+      <div className="p-4">
+        <div className="flex items-center ">
+          <input
+            type="search"
+            className="border border-solid border-black px-2 py-1"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
+          <button
+            className="px-4 m-2 bg-green-500 hover:bg-violet-300 rounded-lg"
+            onClick={() => {
+              const restroDataSearch = filterText.filter((res) =>
+                res.info.name.toLowerCase().includes(text.toLowerCase())
+              );
+              setListofRestro(restroDataSearch);
+            }}
+          >
+            Search
+          </button>
+          <button
+            className="px-4 ml-10  bg-green-500 hover:bg-violet-300 rounded-lg justify-center space-x-2"
+            onClick={() => {
+              const filterdata = filterText.filter(
+                (res) => res.info.avgRating > 4.2
+              );
+              setListofRestro(filterdata);
+            }}
+          >
+            Filter
+          </button>
         </div>
       </div>
-    );
-  };
-  
-  export default Body;
-  
+
+      {/* data coming from down 1st */}
+      <div className="flex flex-wrap justify-center">
+        {listRestro.map((res) => {
+          console.log(listRestro)
+
+          return (
+            <Link key={res.info.id} to={"/restaurants/" + res?.info.id}>
+              return <RestroCards key={res.info.id} {...res.info} />
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default Body;
