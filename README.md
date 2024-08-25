@@ -1,17 +1,30 @@
 [Website](end.png)
 
+
 [Episode1](Notes/EP-1.pdf)
 
-[Episode2](Notes/EP-2.PDF)
-Parcel is Beast?
+[Episode2](Notes/EP-2.pdf)
 
-[Episode3](Notes/EP-3.PDF)
+[Episode3](Notes/EP-3.pdf)
 
-[Episode4](Notes/EP-4.PDF)
+[Episode4](Notes/EP-4.pdf)
 
-[Episode5](Notes/EP-5.PDF)
+[Episode5](Notes/EP-5.pdf)
 
-[Episode6](Notes/EP-6.PDF)
+[Episode6](Notes/EP-6.pdf)
+
+[Episode7](Notes/EP-7.pdf)
+
+[Episode8](Notes/EP-8.pdf)
+
+[Episode9](Notes/EP-9.pdf)
+
+[Episode10](Notes/EP-10.pdf)
+
+[Episode11](Notes/EP-11.pdf)
+
+[Episode12](Notes/EP-12.pdf)
+
 
 It looks like you're compiling notes or a checklist for a React project and its associated setup, including Parcel bundler, export/import methods, hooks, routing, Redux Toolkit, and testing setup. Here's a cleaned-up version of your notes with a bit more structure for clarity:
 
